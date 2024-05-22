@@ -16,6 +16,17 @@ class ViewController: UIViewController {
     
     let operatorValues: [String] = ["+", "-", "*", "/"]
     
+    func showAlert(title: String = "알림", message: String) {
+        let alertSheet = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "확인", style: .default)
+        
+        alertSheet.addAction(alertAction)
+        
+        present(alertSheet, animated: true)
+    }
+
+    
     @IBAction func onPressOperator(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -28,11 +39,26 @@ class ViewController: UIViewController {
     
     
     @IBAction func onPressCalculator(_ sender: Any) {
-        let firstValue = Int(firstCalcValue.text ?? "0") ?? 0
-        let secondValue = Int(secondCalcValue.text ?? "0") ?? 0
-        let operatorValue = operatorCalcValue.title(for: .normal) ?? "+"
+        let firstValue = Int(firstCalcValue.text ?? "")
+        let secondValue = Int(secondCalcValue.text ?? "")
+        let operatorValue = operatorCalcValue.title(for: .normal)
         
-        let result = getCalculateResult(operatorValue: operatorValue, firstValue: firstValue, secondValue: secondValue)
+        guard firstValue != nil else {
+            showAlert(title: "오류", message: "값을 입력해주세요")
+            return
+        }
+        
+        guard secondValue != nil else {
+            showAlert(title: "오류", message: "값을 입력해주세요")
+            return
+        }
+        
+        guard operatorValue != "?" else {
+            showAlert(title: "오류", message: "연산자를 입력해주세요")
+            return
+        }
+        
+        let result = getCalculateResult(operatorValue: operatorValue ?? "+", firstValue: firstValue ?? 0, secondValue: secondValue ?? 0)
         
         resultCalcValue.text = "\(result)"
     }
