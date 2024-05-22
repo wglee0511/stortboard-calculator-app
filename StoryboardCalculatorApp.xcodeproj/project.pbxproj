@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E46EDF1A2BFE30130002CE51 /* calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46EDF192BFE30130002CE51 /* calc.swift */; };
 		E4D40C152BFE1DD7006F2BAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D40C142BFE1DD7006F2BAB /* AppDelegate.swift */; };
 		E4D40C172BFE1DD7006F2BAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D40C162BFE1DD7006F2BAB /* SceneDelegate.swift */; };
 		E4D40C192BFE1DD7006F2BAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D40C182BFE1DD7006F2BAB /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E46EDF192BFE30130002CE51 /* calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calc.swift; sourceTree = "<group>"; };
 		E4D40C112BFE1DD7006F2BAB /* StoryboardCalculatorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryboardCalculatorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D40C142BFE1DD7006F2BAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D40C162BFE1DD7006F2BAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,9 +40,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E46EDF182BFE2FF90002CE51 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				E46EDF192BFE30130002CE51 /* calc.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		E4D40C082BFE1DD7006F2BAB = {
 			isa = PBXGroup;
 			children = (
+				E46EDF182BFE2FF90002CE51 /* lib */,
 				E4D40C282BFE1E2E006F2BAB /* README.md */,
 				E4D40C132BFE1DD7006F2BAB /* StoryboardCalculatorApp */,
 				E4D40C122BFE1DD7006F2BAB /* Products */,
@@ -140,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46EDF1A2BFE30130002CE51 /* calc.swift in Sources */,
 				E4D40C192BFE1DD7006F2BAB /* ViewController.swift in Sources */,
 				E4D40C152BFE1DD7006F2BAB /* AppDelegate.swift in Sources */,
 				E4D40C172BFE1DD7006F2BAB /* SceneDelegate.swift in Sources */,
