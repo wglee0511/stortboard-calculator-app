@@ -24,6 +24,7 @@
 		E4D40C1D2BFE1DD8006F2BAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4D40C202BFE1DD8006F2BAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4D40C222BFE1DD8006F2BAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4D40C282BFE1E2E006F2BAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		E4D40C082BFE1DD7006F2BAB = {
 			isa = PBXGroup;
 			children = (
+				E4D40C282BFE1E2E006F2BAB /* README.md */,
 				E4D40C132BFE1DD7006F2BAB /* StoryboardCalculatorApp */,
 				E4D40C122BFE1DD7006F2BAB /* Products */,
 			);
