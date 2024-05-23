@@ -10,7 +10,6 @@ import UIKit
 
 func setCalculateAction(title: String, actionSheet: UIAlertController, buttonSheet: UIButton) {
     let action = UIAlertAction(title: title, style: .default) { _ in
-        
         buttonSheet.setTitle(title, for: .normal)
     }
     actionSheet.addAction(action)
