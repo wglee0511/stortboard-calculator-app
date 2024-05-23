@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultCalcValue: UITextField!
     @IBOutlet weak var operatorCalcValue: UIButton!
     
-    let operatorValues: [String] = ["+", "-", "*", "/"]
+    let operatorValues: [Operator] = [.div, .minus, Operator.multi, .plus]
     
     func showAlert(title: String = "알림", message: String) {
         let alertSheet = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         for operatorValue in operatorValues {
-            setCalculateAction(title: operatorValue, actionSheet: actionSheet, buttonSheet: self.operatorCalcValue)
+            setCalculateAction(title: convertReverseOperator(operatorValue: operatorValue), actionSheet: actionSheet, buttonSheet: self.operatorCalcValue)
         }
         
         present(actionSheet, animated: true)
@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         let operatorValue = operatorCalcValue.title(for: .normal)
         
         guard firstValue != nil else {
+            firstCalcValue.resignFirstResponder()
             showAlert(title: "오류", message: "값을 입력해주세요")
             return
         }
@@ -58,9 +59,17 @@ class ViewController: UIViewController {
             return
         }
         
-        let result = getCalculateResult(operatorValue: operatorValue ?? "+", firstValue: firstValue ?? 0, secondValue: secondValue ?? 0)
+        let result = getCalculateResult(operatorValue: convertOperator(operatorValue: operatorValue ?? "+"), firstValue: firstValue ?? 0, secondValue: secondValue ?? 0)
         
         resultCalcValue.text = "\(result)"
+        
+        if firstCalcValue.isFirstResponder {
+            firstCalcValue.resignFirstResponder()
+        }
+        
+        if secondCalcValue.isFirstResponder {
+            secondCalcValue.resignFirstResponder()
+        }
     }
     
     override func viewDidLoad() {
@@ -68,6 +77,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        firstCalcValue.becomeFirstResponder()
+    }
 
 }
 
