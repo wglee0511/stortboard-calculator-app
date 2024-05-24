@@ -16,6 +16,15 @@ class ViewController: UIViewController {
     
     let operatorValues: [Operator] = [.div, .minus, Operator.multi, .plus]
     
+    func setTextFieldInitialStyle(
+        textFieldValue: UITextField
+    ) {
+        textFieldValue.layer.borderColor = UIColor.systemGray3.cgColor
+        textFieldValue.layer.borderWidth = 1
+        textFieldValue.layer.cornerRadius = 5
+    }
+    
+    
     func showAlert(title: String = "알림", message: String) {
         let alertSheet = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -74,6 +83,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstCalcValue.delegate = self
+        secondCalcValue.delegate = self
+        setTextFieldInitialStyle(textFieldValue: firstCalcValue)
+        setTextFieldInitialStyle(textFieldValue: secondCalcValue)
         // Do any additional setup after loading the view.
     }
 
@@ -85,3 +98,17 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard !string.isEmpty else {
+            return true
+        }
+        
+        guard let _ = Int(string) else {
+            return false
+        }
+        
+        return true
+    }
+}
